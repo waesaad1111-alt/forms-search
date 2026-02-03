@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>بحث النماذج</title>
+</head>
+<body>
+
+<input id="searchInput" placeholder="اكتب طلبك هنا">
+<button onclick="search()">بحث</button>
+
+<script>
+const forms = [
+
+  {
+    name: 'طلب حجز فندق شخصي',
+    keywords: ['حجز فندق','فندق','اقامة','سكن'],
+    url: 'LINK_1'
+  },
+  {
+    name: 'طلب خدمات ادارية',
+    keywords: ['خدمات ادارية','ادارية','طلب خدمات'],
+    url: 'LINK_2'
+  },
+  {
+    name: 'نموذج تاخير سيارة',
+    keywords: ['تاخير سيارة','سيارة','نقل'],
+    url: 'LINK_3'
+  },
+  {
+    name: 'الابلاغ عن حادث',
+    keywords: ['حادث','حادث وشيك','ايقاف عمل','near miss'],
+    url: 'LINK_4'
+  },
+  {
+    name: 'تقديم مقترح تحسين',
+    keywords: ['مقترح','تحسين','تطوير'],
+    url: 'LINK_5'
+  },
+  {
+    name: 'حجز قاعة اجتماعات',
+    keywords: ['قاعة','اجتماع','حجز قاعة'],
+    url: 'LINK_6'
+  },
+  {
+    name: 'الابلاغ عن عطل بالبوابة',
+    keywords: ['عطل','مشكلة','بوابة','خطأ'],
+    url: 'LINK_7'
+  },
+  {
+    name: 'استطلاع رأي عن البوابة',
+    keywords: ['استطلاع','رأي','تقييم','بوابة'],
+    url: 'LINK_8'
+  },
+  {
+    name: 'تحديث ارقام التليفونات',
+    keywords: ['تحديث رقم','موبايل','تليفون','داخلي'],
+    url: 'LINK_9'
+  },
+  {
+    name: 'بيان بالارصدة',
+    keywords: ['بيان الارصدة','رصيدي','بصمة','اجازاتي'],
+    url: 'LINK_10'
+  }
+
+];
+
+function search(){
+  const q = document.getElementById('searchInput').value;
+  const f = forms.find(x => x.keywords.some(k => q.includes(k)));
+  if(f) window.open(f.url,'_blank');
+  else alert('لم يتم العثور على نموذج');
+}
+</script>
+
+</body>
+</html>
