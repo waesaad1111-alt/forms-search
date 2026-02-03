@@ -66,10 +66,17 @@ const forms = [
 ];
 
 function search(){
-  const q = document.getElementById('searchInput').value;
-  const f = forms.find(x => x.keywords.some(k => q.includes(k)));
-  if(f) window.open(f.url,'_blank');
-  else alert('لم يتم العثور على نموذج');
+  const q = document.getElementById('searchInput').value.trim();
+  const f = forms.find(x =>
+    x.url.startsWith('http') &&
+    x.keywords.some(k => q.includes(k))
+  );
+
+  if (f) {
+    window.open(f.url, '_blank');
+  } else {
+    alert('لم يتم العثور على نموذج');
+  }
 }
 </script>
 
